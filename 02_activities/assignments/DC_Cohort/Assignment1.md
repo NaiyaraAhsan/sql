@@ -205,5 +205,10 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+My thoughts on social identity: I suppose databases serve the purpose of binning real-life complexities into distinct categories and binaries, and by virtue of that may not reflect reality.
+Something I notice often in different forms (for the eventual purpose of data collection) is racial identity, which can become complicated for 
+diaspora communities and due to the nature of changing man-made geographical/geopolitical borders. 
+My thoughts on data use: Often to get different tasks done (medical, government services)
+we have to consent to the collection of our data, with general descriptions of their future use, but we do not know for certain what will be enquired from our data/
+demographics in the future.
 ```

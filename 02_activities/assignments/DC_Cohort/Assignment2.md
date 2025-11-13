@@ -55,6 +55,9 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 ```
 Your answer...
+To overwrite change: slowly changing dimensions type 1 - old address is overwritten 
+To retain change: slowly changing dimensions type 2 - old address kept as history, so dates as well as a column indicating if adress is current is important
+
 ```
 
 ***
@@ -184,4 +187,9 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 ```
 Your thoughts...
+
+Artificial intelligence programs are intelligent; in the way they are trained and the way calculations and collections of strings can be put together with speed and with logical sense. 
+Humans, like all biological entities, have are disordered. We are functional systems, but we have biological limitations. We have rapid recall of our brain “databases” based on our senses. Touch, sound, taste brings back memory and result in reaction with often very desirable outcomes for other humans. 
+Limitation of computational structures include lack of empathy. This is why the efficacy of AI mental health resources should be approached with caution. Emotional judgment calls are a skill acquired by humans through life experience. This can be incredibly difficult to train into a system, if possible, at all. 
+
 ```
