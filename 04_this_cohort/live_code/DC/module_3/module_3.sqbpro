@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/naiyaraahsan/Desktop/sql/05_src/sql/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="9176"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="4" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000536000003a5fc0100000003fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000005360000000000000000fb000000160064006f0063006b00420072006f00770073006500340100000000ffffffff0000011500ffffff000005360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">/* MODULE 3 */
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/naiyaraahsan/Desktop/sql/05_src/sql/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="9176"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="4" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000536000003defc0100000003fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000005360000000000000000fb000000160064006f0063006b00420072006f00770073006500340100000000000005360000018200ffffff000005360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="124"/><column index="2" value="148"/><column index="3" value="300"/><column index="4" value="98"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">/* MODULE 3 */
 /* COUNT */
 
 
@@ -188,20 +188,22 @@ CREATE TABLE temp.new_vendor_inventory AS
 /* 2. put the previous table into another temp table, e.g. as temp.new_new_vendor_inventory  */
 
 
-</sql><sql name="SQL 18">/* MODULE 3 */
-/* Date functions */
-
-
-/* 1. now */
-SELECT 
+</sql><sql name="SQL 18*">/* 1. now */
+SELECT DISTINCT
+DATE('now') as [now]
+,DATETIME('now') [rightnow]
+,DATE() as[todaysdate]
 
 
 /* 2. strftime */
-
-
+,strftime('%Y/%m','now') as [1]
+,strftime('%Y-%m-%d','now','+50 days') as the_future
+,market_date 
+,strftime('%m-%d-%Y',market_date,'+50 days','-1 year') as the_past
 
 /* 3. adding dates, e.g. last date of the month */
-
+--last date of last month
+,DATE(market_date,'start of month','-1 day') as end_of_prev_month
 
 
 /* 4. difference between dates, 
@@ -209,4 +211,7 @@ SELECT
  b. number of YEARS between now and market_date
  c. number of HOURS bewtween now and market_date
  */
-</sql><current_tab id="3"/></tab_sql></sqlb_project>
+ ,market_date
+ ,julianday('now') - julianday(market_date) as datesbetweenmktdate -- number of days between now and each market date
+,(julianday('now') - julianday(market_date)) / 365.25
+,(julianday('now') - julianday(market_date)) * 24</sql><current_tab id="9"/></tab_sql></sqlb_project>
